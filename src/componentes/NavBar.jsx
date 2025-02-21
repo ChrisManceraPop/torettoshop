@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CartWidget from './CartWidget';
 import logo from '../assets/imagenes/logoTorettos.png';
 
@@ -14,41 +15,50 @@ const NavBar = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)', 
+        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
       }}
     >
+      {/* Logo con enlace a Home */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <img
-          src={logo}
-          alt="Logo"
-          style={{
-            height: '40px',
-            marginRight: '1rem',
-          }}
-        />
-        <h1
-          style={{
-            margin: 0,
-            fontSize: '1.8rem', 
-            color: '#2c3e50', 
-            fontFamily: '"Poppins", sans-serif', 
-            fontWeight: 'bold',
-          }}
-        >
-          Toretto's Shop
-        </h1>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <img
+            src={logo}
+            alt="Logo"
+            style={{
+              height: '40px',
+              marginRight: '1rem',
+            }}
+          />
+          <h1
+            style={{
+              margin: 0,
+              fontSize: '1.8rem',
+              color: '#2c3e50',
+              fontFamily: '"Poppins", sans-serif',
+              fontWeight: 'bold',
+            }}
+          >
+            Toretto's Shop
+          </h1>
+        </Link>
       </div>
+
+      {/* Menú de navegación con enlaces React Router */}
       <div>
-        <a href="#home" style={{ margin: '0 1rem', textDecoration: 'none', color: '#007bff', fontWeight: '500' }}>
+        <Link to="/" style={{ margin: '0 1rem', textDecoration: 'none', color: '#007bff', fontWeight: '500' }}>
           Inicio
-        </a>
-        <a href="#products" style={{ margin: '0 1rem', textDecoration: 'none', color: '#007bff', fontWeight: '500' }}>
-          Productos
-        </a>
-        <a href="#about" style={{ margin: '0 1rem', textDecoration: 'none', color: '#007bff', fontWeight: '500' }}>
-          Sobre Toretto´s
-        </a>
+        </Link>
+        <Link to="/categoria/motores" style={{ margin: '0 1rem', textDecoration: 'none', color: '#007bff', fontWeight: '500' }}>
+          Motores
+        </Link>
+        <Link to="/categoria/turbo" style={{ margin: '0 1rem', textDecoration: 'none', color: '#007bff', fontWeight: '500' }}>
+          Turbos
+        </Link>
+        <Link to="/categoria/suspension" style={{ margin: '0 1rem', textDecoration: 'none', color: '#007bff', fontWeight: '500' }}>
+          Suspensión
+        </Link>
       </div>
+
       <CartWidget />
     </nav>
   );
