@@ -17,7 +17,7 @@ const getProductos = () => {
 };
 
 const ItemListContainer = () => {
-  const { categoriaId } = useParams(); // Captura la categoría de la URL
+  const { categoriaId } = useParams();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,12 +31,12 @@ const ItemListContainer = () => {
       }
       setLoading(false);
     });
-  }, [categoriaId]); // Se actualiza cuando cambia la categoría
+  }, [categoriaId]); 
 
   return (
     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
       <h2>{categoriaId ? `Categoría: ${categoriaId}` : "Todos los productos"}</h2>
-      {loading ? <p>Cargando productos...</p> : <ItemList items={items} />}
+      {loading ? <p>Encendiendo motores...</p> : <ItemList items={items} />}
     </div>
   );
 };
